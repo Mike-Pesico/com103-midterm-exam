@@ -1,14 +1,10 @@
-project_title = input("Project title: ")
+project_title = input("Project title: ").strip()
+while project_title == "":
+    project_title = input("Project title cannot be empty. Enter again: ").strip()
 
-while project_title.strip() == "":
-    print("Project title cannot be empty.")
-    project_title = input("Project title: ")
-
-group_name = input("Group name: ")
-
-while group_name.strip() == "":
-    print("Group name cannot be empty.")
-    group_name = input("Group name: ")
+group_name = input("Group name: ").strip()
+while group_name == "":
+    group_name = input("Group name cannot be empty. Enter again: ").strip()
 
 task_names = [
     "Program Logic / Coding",
@@ -26,7 +22,7 @@ print("==========================================")
 
 i = 0
 while i < 5:
-    print(" " + str(i + 1) + ". " + task_names[i] + " [" + str(task_hours[i]) + "h]")
+    print(f" {i + 1}. {task_names[i]} [{task_hours[i]}h]")
     i = i + 1
 
 print("==========================================")
@@ -44,47 +40,45 @@ max_points = 0
 while count <= 4:
     print("\n--- TASK " + str(count) + " ---------------------------")
 
-    task_num = input("Task number (0 to skip): ")
+    task_input = input("Task number (0 to skip): ").strip()
 
-    while task_num.strip() == "":
-        print("Input cannot be empty.")
-        task_num = input("Task number (0 to skip): ")
+    if task_input.isdigit():
+        task_num = int(task_input)
 
-    task_num = int(task_num)
+        if task_num == 0:
+            count = count + 1
 
-    if task_num == 0:
-        count = count + 1
+        elif task_num >= 1 and task_num <= 5:
 
-    elif task_num >= 1 and task_num <= 5:
+            name = input("Member name: ").strip()
+            while name == "":
+                name = input("Member name cannot be empty. Enter again: ").strip()
 
-        name = input("Member name: ")
-        while name.strip() == "":
-            print("Member name cannot be empty.")
-            name = input("Member name: ")
+            status = input("Status (done/pending): ").strip().lower()
+            while status != "done" and status != "pending":
+                status = input("Invalid input. Enter only done or pending: ").strip().lower()
 
-        status = input("Status (done/pending): ")
-        while status.strip() == "":
-            print("Status cannot be empty.")
-            status = input("Status (done/pending): ")
+            if status == "done":
+                points = 2
+            else:
+                points = 1
 
-        if status == "done":
-            points = 2
+            assigned_names.append(name)
+            assigned_status.append(status)
+            assigned_task.append(task_names[task_num - 1])
+            assigned_hours.append(task_hours[task_num - 1])
+            assigned_points.append(points)
+
+            total_points = total_points + points
+            max_points = max_points + 2
+
+            count = count + 1
+
         else:
-            points = 1
-
-        assigned_names.append(name)
-        assigned_status.append(status)
-        assigned_task.append(task_names[task_num - 1])
-        assigned_hours.append(task_hours[task_num - 1])
-        assigned_points.append(points)
-
-        total_points = total_points + points
-        max_points = max_points + 2
-
-        count = count + 1
+            print("Invalid task number. Enter 1–5 or 0 to skip.")
 
     else:
-        print("Invalid task number. Please enter 0–5.")
+        print("Invalid input. Please enter a number only.")
 
 if max_points > 0:
     progress = int((total_points / max_points) * 100)
@@ -99,7 +93,7 @@ else:
     project_status = "NEEDS MORE WORK!"
 
 print("\n================================================")
-print("        " + project_title + " -- TASK BOARD")
+print(f"        {project_title} -- TASK BOARD")
 print("================================================")
 
 print("\nProject : " + project_title)
@@ -110,7 +104,7 @@ j = 0
 display = 1
 
 while j < len(assigned_names):
-    print("[" + str(display) + "] " + assigned_task[j] + " [" + str(assigned_hours[j]) + "h]")
+    print(f"[{display}] {assigned_task[j]} [{assigned_hours[j]}h]")
     print("    Assigned to : " + assigned_names[j])
     print("    Status      : " + assigned_status[j])
     print("    Points      : " + str(assigned_points[j]) + " / 2")
