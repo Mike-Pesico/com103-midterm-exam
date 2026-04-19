@@ -94,4 +94,12 @@ Created for COM 103 to demonstrate:
 ---
 
 ## 👨‍💻 Author
-COM 103 Group Project
+Mike Pesico
+
+## 🧰 Tools used
+VsCode
+Codex
+Shields.io
+GitBash
+
+
