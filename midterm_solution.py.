@@ -1,5 +1,14 @@
 project_title = input("Project title: ")
+
+while project_title == "":
+    print("Project title cannot be empty.")
+    project_title = input("Project title: ")
+
 group_name = input("Group name: ")
+
+while group_name == "":
+    print("Group name cannot be empty.")
+    group_name = input("Group name: ")
 
 task_names = [
     "Program Logic / Coding",
@@ -34,13 +43,29 @@ max_points = 0
 
 while count <= 4:
     print("\n--- TASK " + str(count) + " ---------------------------")
-    task_num = int(input("Task number (0 to skip): "))
+
+    task_num = input("Task number (0 to skip): ")
+
+    while task_num == "":
+        print("Task number cannot be empty.")
+        task_num = input("Task number (0 to skip): ")
+
+    task_num = int(task_num)
 
     if task_num == 0:
         count = count + 1
+
     elif task_num >= 1 and task_num <= 5:
+
         name = input("Member name: ")
+        while name == "":
+            print("Member name cannot be empty.")
+            name = input("Member name: ")
+
         status = input("Status (done/pending): ")
+        while status == "":
+            print("Status cannot be empty.")
+            status = input("Status (done/pending): ")
 
         if status == "done":
             points = 2
@@ -57,6 +82,7 @@ while count <= 4:
         max_points = max_points + 2
 
         count = count + 1
+
     else:
         print("Invalid task number. Please enter 0–5.")
 
@@ -97,4 +123,4 @@ print("------------------------------------------------")
 print("Points Earned   : " + str(total_points) + " / " + str(max_points))
 print("Progress        : " + str(progress) + "%")
 print("Project Status  : " + project_status)
-print("================================================")
+print("================================================") 
