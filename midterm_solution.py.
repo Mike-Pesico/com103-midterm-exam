@@ -1,12 +1,12 @@
 project_title = input("Project title: ")
 
-while project_title == "":
+while project_title.strip() == "":
     print("Project title cannot be empty.")
     project_title = input("Project title: ")
 
 group_name = input("Group name: ")
 
-while group_name == "":
+while group_name.strip() == "":
     print("Group name cannot be empty.")
     group_name = input("Group name: ")
 
@@ -46,8 +46,8 @@ while count <= 4:
 
     task_num = input("Task number (0 to skip): ")
 
-    while task_num == "":
-        print("Task number cannot be empty.")
+    while task_num.strip() == "":
+        print("Input cannot be empty.")
         task_num = input("Task number (0 to skip): ")
 
     task_num = int(task_num)
@@ -58,12 +58,12 @@ while count <= 4:
     elif task_num >= 1 and task_num <= 5:
 
         name = input("Member name: ")
-        while name == "":
+        while name.strip() == "":
             print("Member name cannot be empty.")
             name = input("Member name: ")
 
         status = input("Status (done/pending): ")
-        while status == "":
+        while status.strip() == "":
             print("Status cannot be empty.")
             status = input("Status (done/pending): ")
 
@@ -123,4 +123,4 @@ print("------------------------------------------------")
 print("Points Earned   : " + str(total_points) + " / " + str(max_points))
 print("Progress        : " + str(progress) + "%")
 print("Project Status  : " + project_status)
-print("================================================") 
+print("================================================")
