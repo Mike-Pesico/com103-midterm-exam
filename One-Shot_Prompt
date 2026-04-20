@@ -1,0 +1,51 @@
+Altough my codes are not purely AI since I modified most of it, this prompt is the key core of the code.
+Note: outputs may vary but the functions are almost the same.
+
+✅ What’s the same
+
+  Validate non-empty inputs
+  Use lists to store task data
+  Limit to 4 task assignments
+  Compute points, progress, and status
+  Display a formatted task board
+  Stick to basic Python concepts
+
+
+Prompt:
+
+Create a Python console program for a COM 103 project task tracker.
+
+The program must:
+
+* Ask for a project title and group name, and repeatedly prompt the user if either input is empty (no blank or whitespace-only input allowed).
+* Display a fixed list of 5 predefined task types with corresponding hours:
+  Program Logic / Coding (6h)
+  UI / Output Formatting (3h)
+  Testing & Debugging (2h)
+  Documentation / README (2h)
+  Presentation Slides (2h)
+* Allow the user to assign up to 4 tasks, one at a time:
+
+  * User selects a task number (1–5) or enters 0 to skip.
+  * Validate that the input is numeric and within range.
+  * Ask for member name (must not be empty).
+  * Ask for status (“done” or “pending”) and validate input.
+* Assign points:
+
+  * 2 points if done
+  * 1 point if pending
+* Store all task details using lists (names, status, task type, hours, and points).
+* Compute total points earned, maximum possible points, and progress percentage.
+* Determine project status:
+
+  * 75% and above → “PROJECT READY!”
+  * 50%–74% → “ON TRACK.”
+  * Below 50% → “NEEDS MORE WORK!”
+* Display a formatted task board showing:
+
+  * Project title and group name
+  * Each assigned task with member, status, hours, and points
+  * Final totals, progress percentage, and project status
+* Use while loops, input validation, and basic Python only (no advanced libraries).
+* Keep the output clean, aligned, and readable using formatted strings.
+
