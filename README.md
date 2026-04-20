@@ -97,9 +97,9 @@ Created for COM 103 to demonstrate:
 Mike Pesico
 
 ## 🧰 Tools used
-VsCode
-Codex
-Shields.io
-GitBash
+- VsCode
+- Codex
+- Shields.io
+- GitBash
 
 
